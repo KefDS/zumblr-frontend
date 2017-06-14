@@ -3,16 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "3",
     "react": "^15.6.0",
-    "react-dom": "^15.6.0"
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.6.0",
+    "react-redux": "^5.0.5",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "babel-eslint": "^7.2.3",
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.0.2",
+    "react-scripts": "1.0.7",
+    "standard": "^10.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "lint": "standard",
+    "lint-fix": "standard --fix"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }

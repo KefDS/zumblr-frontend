@@ -5,14 +5,7 @@ import './login.css'
 const Login = (props) => (
   <div className='login__bg'>
     <div className='login__content'>
-      <img src='/assets/img/tumblr_logo_lg.png' alt='tumblr logo' />
-      <div className='login__form'>
-        <input type='text'
-          placeholder='Email'
-        />
-        <button>Next</button>
-      </div>
-      <p className='login__signup'>Sign Up</p>
+      <LoginMainContent />
       <LoginOptions />
     </div>
   </div>
@@ -27,4 +20,14 @@ const LoginOptions = (props) => (
   </ul>
 )
 
+const LoginMainContent = props => (
+  <div className='login__main'>
+    <img src='/assets/img/tumblr_logo_lg.png' alt='tumblr logo' />
+    <div className='login__form'>
+      <input type='text' placeholder='Email' />
+      <button>Next</button>
+    </div>
+    <p className='login__signup'>Sign Up</p>
+  </div>
+)
 export { Login }

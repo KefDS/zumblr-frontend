@@ -14,10 +14,17 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "eslint": "^4.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.0.2",
     "react-scripts": "1.0.7",
-    "standard": "^10.0.2"
+    "stylelint": "^7.11.1",
+    "stylelint-config-standard": "^16.0.0"
   },
   "scripts": {
     "start-js": "react-scripts start",
@@ -26,9 +33,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "lint": "standard",
-    "lint-fix": "standard --fix"
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "standard": {
     "parser": "babel-eslint"

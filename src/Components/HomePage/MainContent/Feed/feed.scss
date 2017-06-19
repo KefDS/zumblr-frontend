@@ -1,8 +1,8 @@
 .feed {
   &__user-photo {
-    width: 100%;
     max-width: 64px;
     max-height: 64px;
+    margin-right: 2.063rem;
   }
 }
 
@@ -10,10 +10,10 @@
   display: flex;
   justify-content: flex-start;
   margin-top: 2.438rem;
+  margin-bottom: 1.875rem;
 
   &__menu {
-    width: 100%;
-    margin-left: 2.063rem;
+    flex: 1;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -27,6 +27,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    p {
+      margin-top: 0.9375rem;
+    }
   }
 
   &__action:first-child {
@@ -38,4 +42,3 @@
     height: 1.563rem;
   }
 }
-

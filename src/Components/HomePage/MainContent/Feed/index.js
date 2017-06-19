@@ -1,11 +1,14 @@
 import React from 'react'
 import postImagesProperties from './postImagesProperties'
 
+import Post from './Post'
+
 import './feed.css'
 
 const Feed = (props) => (
-  <main className='main-content'>
+  <main className='main-content fixed-width'>
     <NewPost />
+    <Post />
   </main>
 )
 
@@ -15,7 +18,7 @@ const NewPost = (props) => (
     <img className='feed__user-photo' src='/assets/img/dummy/me.png' alt='me' />
     <section className='new-post__menu'>
       {postImagesProperties.map(imgInfo => (
-        <PostIcon
+        <NewPostIcon
           path={imgInfo.path}
           alt={imgInfo.alt}
           cssClassName={imgInfo.cssClass}
@@ -26,13 +29,13 @@ const NewPost = (props) => (
   </section>
 )
 
-const PostIcon = ({ path, alt, cssClassName, handleOnClick }) => (
+const NewPostIcon = ({ path, alt, cssClassName, handleOnClick }) => (
   <div className='new-post__action' onClick={handleOnClick} >
     <img
       className={`new-post__icon ${cssClassName}`}
       src={path} alt={alt}
     />
-    <p className='text-center'>{alt}</p>
+    <p>{alt}</p>
   </div>
 )
 

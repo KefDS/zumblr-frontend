@@ -4,6 +4,8 @@ html {
 
 body {
   font-size: 16px;
+  background-color: #d2dae6;
+  height: 100vh;
 }
 
 * {

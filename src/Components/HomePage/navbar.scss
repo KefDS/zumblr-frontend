@@ -1,103 +1,60 @@
-$bgDefault: #36465d;
-$bgHighlight: #36465d;
-$colDefault: #ecf0f1;
-$colHighlight: #fff;
-$dropDown: false;
-
-.navbar-default {
-  background: #000;
-  background-color: $bgDefault;
-  border-color: $bgHighlight;
-
-  .navbar-brand {
-    color: $colDefault;
-
-    &:hover,
-    &:focus {
-      color: $colHighlight;
-    }
+.navbar {
+  &__logo {
+    margin-left: 2.813rem;
   }
 
-  .navbar-text {
-    color: $colDefault;
+  $search-box-bg: #2d3a4e;
+
+  $search-box-text-color: #c4c4c4;
+
+  &__search-box {
+    padding-left: 0;
+    margin-top: 1.25rem;
+    margin-left: 3.625rem;
   }
 
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
+  &__search-input {
+    z-index: 1;
+    position: relative;
+    left: -2.5rem;
+    padding-left: 2.5rem;
 
-        &:hover,
-        &:focus {
-          color: $colHighlight;
-        }
-      }
-    }
-
-    > .active {
-      > a,
-      > a:hover,
-      > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
-    }
-
-    > .open {
-      > a,
-      > a:hover,
-      > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
-    }
+    // TODO: Fix this. Important overrrides .navbar-form .form-control width property
+    width: 19.69rem !important;
+    background-color: $search-box-bg;
+    border: transparent;
   }
 
-  .navbar-toggle {
-    border-color: $bgHighlight;
-
-    &:hover,
-    &:focus {
-      background-color: $bgHighlight;
-    }
-
-    .icon-bar {
-      background-color: $colDefault;
-    }
-  }
-
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault;
-  }
-
-  .navbar-link {
-    color: $colDefault;
+  &__search-btn {
+    z-index: 2;
+    background-color: transparent;
+    border-color: transparent;
+    color: $search-box-text-color;
 
     &:hover {
-      color: $colHighlight;
+      color: $search-box-text-color;
     }
   }
-}
 
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu {
-    > li > a {
-      color: $colDefault;
+  &__right-icons {
+    margin-top: 1.563rem;
 
-      &:hover,
-      &:focus {
-        color: $colHighlight;
-      }
+    li a {
+      padding: 0 1.938rem 0 0;
     }
 
-    > .active {
-      > a,
-      > a:hover,
-      > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
+    & li:last-child {
+      margin-right: 4.25rem;
     }
+  }
+
+  &__icon {
+    // TODO: Change color of the svg
+    path {
+      fill: red;//rgba(255, 255, 255, 0.3);
+    }
+
+    height: 1.25rem;
+    width: 1.25rem;
   }
 }

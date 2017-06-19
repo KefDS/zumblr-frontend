@@ -21,27 +21,35 @@ const SiteNavbar = () => (
       </div>
 
       <div id='menu' className='collapse navbar-collapse'>
-
-        <form className='navbar-form navbar-left navbar__search-box'>
-          {/* TODO: Find icon */}
-          <button type='submit' className='navbar__search-btn'>:v</button>
-          <input type='text' className='form-control navbar__search-input' placeholder='Search Tumblr' />
-        </form>
-
-        <ul className='nav navbar-nav navbar-right navbar__right-icons'>
-          {navbarIcons.map((navbarIcon, index) =>
-            (<li key={index}>
-              <NavbarIcon route='#' img={navbarIcon.path} alt={navbarIcon.alt} />
-            </li>)
-          )}
-        </ul>
+        <SearchBox />
+        <RightNavbarItems />
       </div>
     </div>
   </nav>
 )
 
+const SearchBox = (props) => (
+  <div className='navbar-form navbar-left navbar__search-box'>
+    {/* TODO: Find icon */}
+    <button type='submit' className='navbar__search-btn'>:v</button>
+    <input type='text' className='form-control navbar__search-input' placeholder='Search Tumblr' />
+  </div>
+)
+
+const RightNavbarItems = (props) => (
+  <ul className='nav navbar-nav navbar-right navbar__right-icons'>
+    {navbarIcons.map((navbarIcon, index) =>
+      (<li key={index}>
+        <NavbarIcon route='#' img={navbarIcon.path} alt={navbarIcon.alt} />
+      </li>)
+    )}
+    {/* TODO: Change color and background to edit button */}
+    <li className='navbar__make-post'><NavbarIcon route='#' img='/assets/img/navbar/post.svg' /></li>
+  </ul>
+)
+
 const NavbarIcon = ({ route, img, alt }) => (
-  <Link to={route}><img className='svg navbar__icon' src={img} /></Link>
+  <Link to={route}><img className='navbar__icon' src={img} /></Link>
 )
 
 export default SiteNavbar

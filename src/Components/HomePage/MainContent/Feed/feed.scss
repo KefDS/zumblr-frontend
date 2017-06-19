@@ -1,0 +1,38 @@
+.feed {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2.438rem;
+
+  &__user-photo {
+    width: 100%;
+    max-width: 64px;
+    max-height: 64px;
+  }
+}
+
+.new-post {
+  width: 100%;
+  margin-left: 2.063rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 6.25rem;
+  border-radius: 3px;
+  background-color: #fff;
+
+  &__action {
+    padding: 0 1.25rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__action:first-child {
+    padding-left: 1.25rem;
+  }
+
+  &__icon {
+    width: 1.625rem;
+    height: 1.563rem;
+  }
+}

@@ -1,10 +1,11 @@
 import React from 'react'
-import Navbar from './Navbar'
+import SiteNavbar from './SiteNavbar/'
+import MainContent from './MainContent'
 
 const HomePage = () => (
   <div>
-    <Navbar />
-    <div>HomePage</div>
+    <SiteNavbar />
+    <MainContent />
   </div>
 )
 

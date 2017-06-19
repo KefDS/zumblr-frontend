@@ -4,10 +4,16 @@ import postImagesProperties from './postImagesProperties'
 import './feed.css'
 
 const Feed = (props) => (
-  <section className='feed'>
+  <main className='main-content'>
+    <NewPost />
+  </main>
+)
+
+const NewPost = (props) => (
+  <section className='new-post'>
     {/* TODO: Fetch image from user */}
     <img className='feed__user-photo' src='/assets/img/dummy/me.png' alt='me' />
-    <section className='new-post'>
+    <section className='new-post__menu'>
       {postImagesProperties.map(imgInfo => (
         <PostIcon
           path={imgInfo.path}

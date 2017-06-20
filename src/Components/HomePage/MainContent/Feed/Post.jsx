@@ -2,13 +2,13 @@ import React from 'react'
 
 import './post.css'
 
-const Post = (props) => (
+const Post = ({ author, hashtags, children }) => (
   <section className='post'>
     <img className='feed__user-photo' src='/assets/img/dummy/me.png' alt='me' />
     <div className='post__content'>
       <section className='post__header'>
         <div className='post__info'>
-          <p>Here's a blog: <strong>bob-strauss</strong></p>
+          <p>Here's a blog: <strong>{author}</strong></p>
           <p><a href='#'>Follow</a></p>
         </div>
         <div className='post__actions'>
@@ -17,19 +17,11 @@ const Post = (props) => (
         </div>
       </section>
       <section className='post__body'>
-        <p>
-          - ¿No estás escribiendo? <br />
-          - Estoy con mi tren. ¿Te gusta?, lo acabo de comprar. <br />
-          - ¿Hace cuanto que no escribís nada? <br />
-          - Estuve de viaje. <br />
-          - Tal vez ya no tengas nada que escribir. Mira, aquí te marqué varios trabajos posibles. <br />
-          - No necesito que me busques trabajo, estoy bien así, soy poeta. <br />
-          - ¿Qué oficio ser poeta?, acaso dice aquí "se busca poeta, buena remuneración".
-        </p>
+        {children}
       </section>
       <section className='post__footer'>
         <div className='post__hastag'>
-          <p>#laHoraSad #lauraSad #noMeVaADarTiempo</p>
+          <p>{hashtags.map(hashtag => <span>#{hashtag} </span>)}</p>
         </div>
         <div className='post__bottom-info'>
           <div className='post__notes'>

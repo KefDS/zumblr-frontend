@@ -1,14 +1,14 @@
 import React from 'react'
 import postImagesProperties from './postImagesProperties'
 
-import Post from './Post'
+import PostsContainer from './PostsContainer'
 
 import './feed.css'
 
 const Feed = (props) => (
   <main className='main-content fixed-width'>
     <NewPost />
-    <Post />
+    <PostsContainer />
   </main>
 )
 

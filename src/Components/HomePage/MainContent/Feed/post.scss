@@ -32,8 +32,6 @@
   }
 
   &__actions {
-    margin-right: 1.875rem;
-
     img:first-child {
       margin-right: 1.875rem;
     }
@@ -72,6 +70,10 @@
       margin-right: 1.875rem;
       height: 0.875rem;
       width: 0.875rem;
+    }
+
+    img:last-child {
+      margin-right: 0;
     }
   }
 }

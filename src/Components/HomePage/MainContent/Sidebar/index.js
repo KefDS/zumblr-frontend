@@ -37,14 +37,16 @@ const RecommendedBlogs = ({ users }) => (
   </SidebarContainer>
 )
 
-const Radar = ({ user, content }) => (
-  <SidebarContainer>
+const RadarSidebar = ({ user, children }) => (
+  <SidebarContainer title='RADAR'>
     <RecommendedBlog
       img={user.img}
       username={user.username}
       blogName={user.blogName}
     />
-    {content.isImage ? <img style='width: 100%' src={content.path} /> : content}
+    <section className='radar'>
+      {children}
+    </section>
   </SidebarContainer>
 )
 
@@ -71,25 +73,14 @@ const RecommendedBlogUsers = ({ children }) => (
   </div>
 )
 
-const RadarSidebar = () => (
-  <div>
-    <RecommendedBlog
-      img='/assets/img/dummy/me.png'
-      username='Ray Paté'
-      blogName='Landscaping'
-    />
-    <img src='/assets/img/dummy/post-img.png' alt='' />
-  </div>
-)
-
 const MockUsersSidebar = (props) => (
   <div>
     <SidebarContainer title='RECOMMENDED BLOGS'>
       <RecommendedBlogUsers />
     </SidebarContainer>
-    <SidebarContainer title='RADAR'>
-      <RadarSidebar />
-    </SidebarContainer>
+    <RadarSidebar user={{ img: '/assets/img/dummy/me.png', username: 'NG', blogName: 'Landscaping' }}>
+      <img src='/assets/img/dummy/post-img.png' />
+    </RadarSidebar>
   </div>
 )
 

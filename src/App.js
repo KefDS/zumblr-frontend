@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Login } from './Components/Login'
 import { NotFound } from './Components/NotFound'
-import { HomePage } from './Components/HomePage'
+import HomePage from './Components/HomePage'
 
 import './App.css'
 

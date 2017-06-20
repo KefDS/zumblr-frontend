@@ -20,7 +20,7 @@ const Post = (props) => (
         <p>
           - ¿No estás escribiendo? <br />
           - Estoy con mi tren. ¿Te gusta?, lo acabo de comprar. <br />
-          - ¿Hace cuanto no escribís nada? <br />
+          - ¿Hace cuanto que no escribís nada? <br />
           - Estuve de viaje. <br />
           - Tal vez ya no tengas nada que escribir. Mira, aquí te marqué varios trabajos posibles. <br />
           - No necesito que me busques trabajo, estoy bien así, soy poeta. <br />

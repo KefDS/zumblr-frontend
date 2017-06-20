@@ -1,0 +1,17 @@
+.sidebar {
+  padding: 1.875rem 0 0;
+  background-color: #fff;
+
+  &__content img {
+    width: 100%;
+  }
+
+  h2 {
+    padding: 0 1.938rem;
+    color: #565656;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 2.188rem;
+  }
+}

@@ -1,6 +1,7 @@
 .navbar {
-  &__logo {
-    margin-left: 2.813rem;
+  &__wrapper {
+    max-width: 71.88rem;
+    margin: 0 auto;
   }
 
   $search-box-bg: #2d3a4e;

@@ -9,7 +9,6 @@
 .new-post {
   display: flex;
   justify-content: flex-start;
-  margin-top: 2.438rem;
   margin-bottom: 1.875rem;
 
   &__menu {
@@ -29,6 +28,7 @@
     align-items: center;
 
     p {
+      color: #565656;
       margin-top: 0.9375rem;
     }
   }

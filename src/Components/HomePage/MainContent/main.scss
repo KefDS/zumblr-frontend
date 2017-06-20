@@ -1,7 +1,9 @@
 @import '../shared.scss';
 
 .main {
-  margin-top: $height-navbar;
+  max-width: 71.88rem;
+  margin: $height-navbar auto 0 auto;
+  padding-top: 2.5rem;
 }
 
 .fixed-width {

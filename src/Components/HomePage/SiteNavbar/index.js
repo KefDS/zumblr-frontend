@@ -8,21 +8,23 @@ import './navbar.css'
 
 const SiteNavbar = () => (
   <nav className='navbar navbar-default navbar-fixed-top'>
-    <div className='container-fluid'>
+    <div className='navbar__wrapper'>
+      <div className='container-fluid'>
 
-      <div className='navbar-header'>
-        <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>
-          <span className='sr-only'>Toggle navigation</span>
-          <span className='icon-bar' />
-          <span className='icon-bar' />
-          <span className='icon-bar' />
-        </button>
-        <Link to='/' className='navbar-brand'><img className='navbar__logo' src='/assets/img/tumblr_logo.png' alt='tumblr' /></Link>
-      </div>
+        <div className='navbar-header'>
+          <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>
+            <span className='sr-only'>Toggle navigation</span>
+            <span className='icon-bar' />
+            <span className='icon-bar' />
+            <span className='icon-bar' />
+          </button>
+          <Link to='/' className='navbar-brand'><img className='navbar__logo' src='/assets/img/tumblr_logo.png' alt='tumblr' /></Link>
+        </div>
 
-      <div id='menu' className='collapse navbar-collapse'>
-        <SearchBox />
-        <RightNavbarItems />
+        <div id='menu' className='collapse navbar-collapse'>
+          <SearchBox />
+          <RightNavbarItems />
+        </div>
       </div>
     </div>
   </nav>

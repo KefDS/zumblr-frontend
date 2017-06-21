@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 import * as loginCreators from '../../redux/actions/loginCreators'
-import Api from '../../services/api'
+import API from '../../services/api'
 
 class LoginContainer extends Component {
   constructor (props) {
     super(props)
-    this.email = ''
-    this.password = ''
-    this.emailIsValid = null
+    this.state = {
+      loggedIn: false,
+      email: '',
+      password: ''
+    }
 
     // Bindings
     this.handleOnChangeEmail = this.handleOnChangeEmail.bind(this)
     this.handleOnChangePassword = this.handleOnChangePassword.bind(this)
     this.handleOnClick = this.handleOnClick.bind(this)
+  }
+
+  setUserOnLocalStorage (userID) {
+    window.localStorage.setItem('userID', userID)
   }
 
   handleOnChangeEmail (evt) {
@@ -31,19 +38,28 @@ class LoginContainer extends Component {
 
   handleOnClick () {
     const { email, password } = this.state
-    Api.authUser(email, password)
-      .then(data => { console.dir(data); this.props.setUser(data) })
-      .catch(error => console.error(error))
+    const { setUser } = this.props
+    API.authUser(email, password)
+      .then(data => {
+        window.localStorage.setItem('token', data.token)
+        setUser(data.user)
+        this.setState({ loggedIn: true })
+      })
+      .catch(error => console.dir(error))
   }
 
   render () {
-    return (
+    const { loggedIn } = this.state
+
+    const LoginPanel = (
       <section className='login__form'>
         <EmailInput handleOnChange={this.handleOnChangeEmail} />
         <PasswordInput handleOnChange={this.handleOnChangePassword} />
-        <button onClick={this.handleOnClick}>Next</button>
+        <button onClick={this.handleOnClick}>Login</button>
       </section>
     )
+
+    return loggedIn ? <Redirect to='/dashboard' /> : LoginPanel
   }
 }
 

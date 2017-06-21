@@ -4,6 +4,9 @@ function rootReducer (state = [], action) {
     case 'SET_MY_POSTS':
       newState = setUserPosts(state, action.payload)
       break
+    case 'SET_USER':
+      newState = { ...state, user: action.payload }
+      break
     default:
       newState = state
   }

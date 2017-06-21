@@ -45,8 +45,7 @@ const RightNavbarItems = (props) => (
         <NavbarIcon route='#' img={navbarIcon.path} alt={navbarIcon.alt} />
       </li>)
     )}
-    {/* TODO: Change color and background to edit button */}
-    <li className='navbar__make-post'><NavbarIcon route='#' img='/assets/img/navbar/post.svg' /></li>
+    <li><Link to='#'><img className='navbar__make-post' src='/assets/img/navbar/post.svg' /></Link></li>
   </ul>
 )
 

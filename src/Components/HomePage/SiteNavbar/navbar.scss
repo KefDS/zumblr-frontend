@@ -38,24 +38,29 @@
   }
 
   &__right-icons {
-    margin-top: 1.563rem;
-
-    li a {
-      padding: 0 1.938rem 0 0;
+    li {
+      margin-right: 30px;
     }
 
-    & li:last-child {
-      margin-right: 4.25rem;
+    li a {
+      padding: 0;
     }
   }
 
   &__icon {
+    margin-top: 1.563rem;
     height: 1.25rem;
     width: 1.25rem;
   }
 
   &__make-post {
-    // TODO: Change background color svg
+    margin-top: 1.0625rem;
+    background-color: #529ecc;
+    border-radius: 4px;
+    fill: #36465d;
+    padding: 0.5rem;
+    height: 2.1875rem;
+    width: 2.1875rem;
   }
 }
 

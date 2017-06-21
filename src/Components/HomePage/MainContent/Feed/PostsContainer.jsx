@@ -20,8 +20,10 @@ class PostsContainer extends Component {
             author={user.name}
             hashtags={post.hashtags}
           >
-            {/* TODO: Image or text */}
-            <PostText text={post.text} />
+            {post.text
+              ? <PostText text={post.text} />
+              : <img src={`http://localhost:1337/multimedia/${post.multimedia}`} />
+            }
           </Post>
         ))}
       </div>

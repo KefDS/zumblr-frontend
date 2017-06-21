@@ -8,7 +8,7 @@ let data = {
 
 const API = {
   getUserPosts (userID) {
-    const header = { headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` } }
+    const header = { headers: { Authorization: `Bearer ${window.sessionStorage.getItem('token')}` } }
     const url = `${data.apiURL}/user/${userID}/posts`
     return Axios.get(url, header)
       .then(response => response.data)

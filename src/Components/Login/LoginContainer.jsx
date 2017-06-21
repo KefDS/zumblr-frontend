@@ -9,7 +9,6 @@ class LoginContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      loggedIn: false,
       email: '',
       password: ''
     }
@@ -18,10 +17,6 @@ class LoginContainer extends Component {
     this.handleOnChangeEmail = this.handleOnChangeEmail.bind(this)
     this.handleOnChangePassword = this.handleOnChangePassword.bind(this)
     this.handleOnClick = this.handleOnClick.bind(this)
-  }
-
-  setUserOnLocalStorage (userID) {
-    window.localStorage.setItem('userID', userID)
   }
 
   handleOnChangeEmail (evt) {
@@ -38,18 +33,18 @@ class LoginContainer extends Component {
 
   handleOnClick () {
     const { email, password } = this.state
-    const { setUser } = this.props
+    const { setUser, loggedIn } = this.props
     API.authUser(email, password)
       .then(data => {
-        window.localStorage.setItem('token', data.token)
+        window.sessionStorage.setItem('token', data.token)
         setUser(data.user)
-        this.setState({ loggedIn: true })
+        loggedIn()
       })
       .catch(error => console.dir(error))
   }
 
   render () {
-    const { loggedIn } = this.state
+    const { isLoggedIn } = this.props
 
     const LoginPanel = (
       <section className='login__form'>
@@ -59,7 +54,7 @@ class LoginContainer extends Component {
       </section>
     )
 
-    return loggedIn ? <Redirect to='/dashboard' /> : LoginPanel
+    return isLoggedIn ? <Redirect to='/dashboard' /> : LoginPanel
   }
 }
 
@@ -81,8 +76,8 @@ const PasswordInput = ({ handleOnChange }) => (
   />
 )
 
-function mapStateToProps (state) {
-  return {}
-}
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn
+})
 
 export default connect(mapStateToProps, loginCreators)(LoginContainer)

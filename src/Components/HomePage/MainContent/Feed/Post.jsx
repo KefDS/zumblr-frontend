@@ -9,11 +9,11 @@ const Post = ({ author, hashtags, children }) => (
       <section className='post__header'>
         <div className='post__info'>
           <p>Here's a blog: <strong>{author}</strong></p>
-          <p><a href='#'>Follow</a></p>
+          <p><a href=''>Follow</a></p>
         </div>
         <div className='post__actions'>
-          <img src='/assets/img/post/close.svg' />
-          <img src='/assets/img/post/explore.svg' />
+          <img src='/assets/img/post/close.svg' alt='close' />
+          <img src='/assets/img/post/explore.svg' alt='explore' />
         </div>
       </section>
       <section className='post__body'>
@@ -25,13 +25,13 @@ const Post = ({ author, hashtags, children }) => (
         </div>
         <div className='post__bottom-info'>
           <div className='post__notes'>
-            <strong>283783 notes</strong>
+            <strong>{Math.floor(Math.random() * (2567 - 50) + 50)} notes</strong>
           </div>
           <div className='post__bottom-actions'>
-            <img src='/assets/img/post/share.svg' />
-            <img src='/assets/img/post/reply.svg' />
-            <img src='/assets/img/post/reblog.svg' />
-            <img src='/assets/img/post/like.svg' />
+            <img src='/assets/img/post/share.svg' alt='share' />
+            <img src='/assets/img/post/reply.svg' alt='reply' />
+            <img src='/assets/img/post/reblog.svg' alt='reblog' />
+            <img src='/assets/img/post/like.svg' alt='like' />
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ function setUserPosts (userPosts) {
 
 export function getUserPosts (userID) {
   return (dispatch) => {
-    API.getUserPost(userID)
+    API.getUserPosts(userID)
       .then(data => dispatch(setUserPosts(data)))
       .catch(err => console.error(err))
   }

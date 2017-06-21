@@ -17,8 +17,9 @@ const NewPost = (props) => (
     {/* TODO: Fetch image from user */}
     <img className='feed__user-photo' src='/assets/img/dummy/me.png' alt='me' />
     <section className='new-post__menu'>
-      {postImagesProperties.map(imgInfo => (
+      {postImagesProperties.map((imgInfo, index) => (
         <NewPostIcon
+          key={index}
           path={imgInfo.path}
           alt={imgInfo.alt}
           cssClassName={imgInfo.cssClass}

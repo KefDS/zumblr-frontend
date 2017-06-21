@@ -12,7 +12,7 @@ const SiteNavbar = () => (
       <div className='container-fluid'>
 
         <div className='navbar-header'>
-          <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>
+          <button type='button' className='navbar__button navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>
             <span className='sr-only'>Toggle navigation</span>
             <span className='icon-bar' />
             <span className='icon-bar' />
@@ -22,7 +22,9 @@ const SiteNavbar = () => (
         </div>
 
         <div id='menu' className='collapse navbar-collapse'>
-          <SearchBox />
+          <div className='navbar-form navbar-left navbar__search-box'>
+            <SearchBox />
+          </div>
           <RightNavbarItems />
         </div>
       </div>
@@ -31,10 +33,12 @@ const SiteNavbar = () => (
 )
 
 const SearchBox = (props) => (
-  <div className='navbar-form navbar-left navbar__search-box'>
-    {/* TODO: Find icon */}
-    <button type='submit' className='navbar__search-btn'>:v</button>
-    <input type='text' className='form-control navbar__search-input' placeholder='Search Tumblr' />
+  <div className='navbar__search-icon'>
+    <i className='glyphicon glyphicon-search' />
+    <input type='search'
+      className='form-control navbar__search-input'
+      placeholder='Search Tumblr'
+    />
   </div>
 )
 
@@ -45,12 +49,12 @@ const RightNavbarItems = (props) => (
         <NavbarIcon route='#' img={navbarIcon.path} alt={navbarIcon.alt} />
       </li>)
     )}
-    <li><Link to='#'><img className='navbar__make-post' src='/assets/img/navbar/post.svg' /></Link></li>
+    <li><Link to='#'><img className='navbar__make-post' src='/assets/img/navbar/post.svg' alt='Make Post' /></Link></li>
   </ul>
 )
 
 const NavbarIcon = ({ route, img, alt }) => (
-  <Link to={route}><img className='navbar__icon' src={img} /></Link>
+  <Link to={route}><img className='navbar__icon' src={img} alt={alt} /></Link>
 )
 
 export default SiteNavbar

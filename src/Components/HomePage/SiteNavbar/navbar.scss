@@ -4,36 +4,45 @@
     margin: 0 auto;
   }
 
+  &__button {
+    margin-top: 1rem;
+  }
+
   $search-box-bg: #2d3a4e;
 
   $search-box-text-color: #c4c4c4;
 
   &__search-box {
+    border: 0;
     padding-left: 0;
-    margin-top: 1.25rem;
-    margin-left: 3.625rem;
+    margin: 1.25rem 0 0 3.625rem;
+  }
+
+  &__search-icon {
+    position: relative;
+
+    .glyphicon {
+      position: absolute;
+      left: 0;
+      padding: 0.625rem 0.75rem 0.625rem 1.25rem;
+      color: $search-box-text-color;
+    }
   }
 
   &__search-input {
-    z-index: 1;
-    position: relative;
-    left: -2.5rem;
-    padding-left: 2.5rem;
-
-    // TODO: Fix this. Important overrrides .navbar-form .form-control width property
-    width: 19.69rem !important;
+    // Note: If I set the width of the design, breaks the sm and xs view
+    padding-left: 2.938rem;
     background-color: $search-box-bg;
     border: transparent;
-  }
+    font-size: 15px;
 
-  &__search-btn {
-    z-index: 2;
-    background-color: transparent;
-    border-color: transparent;
-    color: $search-box-text-color;
-
-    &:hover {
-      color: $search-box-text-color;
+    &:focus,
+    &:active,
+    &:active:focus,
+    &.active:focus {
+      background-color: #fff;
+      outline: none;
+      box-shadow: none;
     }
   }
 
@@ -66,5 +75,17 @@
     padding: 0.5rem;
     height: 2.1875rem;
     width: 2.1875rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar__right-icons {
+    li {
+      display: inline-block;
+    }
+  }
+
+  .navbar__search-input {
+    width: 100%;
   }
 }

@@ -22,7 +22,7 @@ class PostsContainer extends Component {
           >
             {post.text
               ? <PostText text={post.text} />
-              : <img src={`http://localhost:1337/multimedia/${post.multimedia}`} />
+              : <img src={`http://localhost:1337/multimedia/${post.multimedia}`} alt='blog' />
             }
           </Post>
         ))}

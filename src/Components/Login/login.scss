@@ -29,11 +29,14 @@
 
   input {
     width: 100%;
-    border-radius: 4px;
     height: 3.75rem;
     margin-bottom: 1.875rem;
     padding: 0 1.938rem;
     border: 0;
+
+    &:first-child {
+      margin-bottom: 0;
+    }
   }
 
   button {
@@ -70,5 +73,15 @@
 
   & li:last-child {
     margin-right: 0;
+  }
+}
+
+.login-form {
+  &__email {
+    border-radius: 3px 3px 0 0;
+  }
+
+  &__password {
+    border-radius: 0 0 3px 3px;
   }
 }

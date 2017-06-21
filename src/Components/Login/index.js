@@ -1,5 +1,7 @@
 import React from 'react'
 
+import LoginContainer from './LoginContainer'
+
 import './login.css'
 
 const Login = (props) => (
@@ -8,6 +10,14 @@ const Login = (props) => (
       <LoginMainContent />
       <LoginOptions />
     </div>
+  </div>
+)
+
+const LoginMainContent = props => (
+  <div className='login__main'>
+    <img src='/assets/img/tumblr_logo_lg.png' alt='tumblr logo' />
+    <LoginContainer />
+    <p className='login__signup'>Sign Up</p>
   </div>
 )
 
@@ -20,14 +30,4 @@ const LoginOptions = (props) => (
   </ul>
 )
 
-const LoginMainContent = props => (
-  <div className='login__main'>
-    <img src='/assets/img/tumblr_logo_lg.png' alt='tumblr logo' />
-    <div className='login__form'>
-      <input type='text' placeholder='Email' />
-      <button>Next</button>
-    </div>
-    <p className='login__signup'>Sign Up</p>
-  </div>
-)
-export { Login }
+export default Login

@@ -29,6 +29,16 @@
     padding-left: 2.938rem;
     background-color: $search-box-bg;
     border: transparent;
+    font-size: 15px;
+
+    &:focus,
+    &:active,
+    &:active:focus,
+    &.active:focus {
+      background-color: white;
+      outline: none;
+      box-shadow: none;
+    }
   }
 
   &__right-icons {

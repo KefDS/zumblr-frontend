@@ -32,9 +32,15 @@ const SiteNavbar = () => (
 
 const SearchBox = (props) => (
   <div className='navbar-form navbar-left navbar__search-box'>
-    {/* TODO: Find icon */}
-    <button type='submit' className='navbar__search-btn'>:v</button>
-    <input type='text' className='form-control navbar__search-input' placeholder='Search Tumblr' />
+
+    <div className='navbar__search-icon'>
+      <i className='glyphicon glyphicon-search' />
+      <input type='search'
+        className='form-control navbar__search-input'
+        placeholder='Search Tumblr'
+      />
+    </div>
+
   </div>
 )
 

@@ -10,31 +10,25 @@
 
   &__search-box {
     padding-left: 0;
-    margin-top: 1.25rem;
-    margin-left: 3.625rem;
+    margin: 1.25rem 0 0 3.625rem;
+  }
+
+  &__search-icon {
+    position: relative;
+
+    .glyphicon {
+      position: absolute;
+      left: 0;
+      padding: 0.625rem 0.75rem 0.625rem 1.25rem;
+      color: $search-box-text-color;
+    }
   }
 
   &__search-input {
-    z-index: 1;
-    position: relative;
-    left: -2.5rem;
-    padding-left: 2.5rem;
-
-    // TODO: Fix this. Important overrrides .navbar-form .form-control width property
-    width: 19.69rem !important;
+    // Note: If a set the width of the design, breaks the sm and xs view
+    padding-left: 2.938rem;
     background-color: $search-box-bg;
     border: transparent;
-  }
-
-  &__search-btn {
-    z-index: 2;
-    background-color: transparent;
-    border-color: transparent;
-    color: $search-box-text-color;
-
-    &:hover {
-      color: $search-box-text-color;
-    }
   }
 
   &__right-icons {

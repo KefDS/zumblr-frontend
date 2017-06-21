@@ -1,0 +1,11 @@
+@import '../shared.scss';
+
+.main {
+  max-width: 71.88rem;
+  margin: $height-navbar auto 0 auto;
+  padding-top: 2.5rem;
+}
+
+.fixed-width {
+  min-width: 581px;
+}

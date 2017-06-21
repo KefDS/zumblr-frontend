@@ -1,0 +1,69 @@
+.navbar {
+  &__wrapper {
+    max-width: 71.88rem;
+    margin: 0 auto;
+  }
+
+  $search-box-bg: #2d3a4e;
+
+  $search-box-text-color: #c4c4c4;
+
+  &__search-box {
+    padding-left: 0;
+    margin-top: 1.25rem;
+    margin-left: 3.625rem;
+  }
+
+  &__search-input {
+    z-index: 1;
+    position: relative;
+    left: -2.5rem;
+    padding-left: 2.5rem;
+
+    // TODO: Fix this. Important overrrides .navbar-form .form-control width property
+    width: 19.69rem !important;
+    background-color: $search-box-bg;
+    border: transparent;
+  }
+
+  &__search-btn {
+    z-index: 2;
+    background-color: transparent;
+    border-color: transparent;
+    color: $search-box-text-color;
+
+    &:hover {
+      color: $search-box-text-color;
+    }
+  }
+
+  &__right-icons {
+    li {
+      margin-right: 30px;
+    }
+
+    li a {
+      padding: 0;
+    }
+  }
+
+  &__icon {
+    margin-top: 1.563rem;
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  &__make-post {
+    margin-top: 1.0625rem;
+    background-color: #529ecc;
+    border-radius: 4px;
+    fill: #36465d;
+    padding: 0.5rem;
+    height: 2.1875rem;
+    width: 2.1875rem;
+  }
+}
+
+.navbar-right img {
+  opacity: 0.3;
+}

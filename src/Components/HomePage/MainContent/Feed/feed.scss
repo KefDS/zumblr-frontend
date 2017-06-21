@@ -1,0 +1,44 @@
+.feed {
+  &__user-photo {
+    max-width: 64px;
+    max-height: 64px;
+    margin-right: 2.063rem;
+  }
+}
+
+.new-post {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.875rem;
+
+  &__menu {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 6.25rem;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+
+  &__action {
+    padding: 0 1.25rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      color: #565656;
+      margin-top: 0.9375rem;
+    }
+  }
+
+  &__action:first-child {
+    padding-left: 1.25rem;
+  }
+
+  &__icon {
+    width: 1.625rem;
+    height: 1.563rem;
+  }
+}

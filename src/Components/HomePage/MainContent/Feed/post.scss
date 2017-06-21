@@ -1,0 +1,83 @@
+// Post block
+.post {
+  margin-bottom: 1.875rem;
+  display: flex;
+  justify-content: flex-start;
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 4.438rem;
+  }
+
+  &__content {
+    background-color: #fff;
+    padding: 0 1.875rem 1.875rem;
+    flex: 1;
+  }
+
+  &__info {
+    margin-right: auto;
+    display: flex;
+
+    p:first-child {
+      color: #8f8f8f;
+      margin-right: 1.375rem;
+    }
+
+    a {
+      color: #529ecc;
+    }
+  }
+
+  &__actions {
+    img:first-child {
+      margin-right: 1.875rem;
+    }
+
+    img {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
+
+  &__body {
+    img {
+      width: 100%;
+    }
+
+    margin-bottom: 1.875rem;
+  }
+
+  &__footer {
+    color: #8f8f8f;
+    font-size: 14px;
+    margin-top: 1.875rem;
+  }
+
+  &__bottom-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__hastag {
+    margin-bottom: 2.25rem;
+  }
+
+  &__notes {
+    margin-right: auto;
+  }
+
+  &__bottom-actions {
+    img {
+      margin-right: 1.875rem;
+      height: 0.875rem;
+      width: 0.875rem;
+    }
+
+    img:last-child {
+      margin-right: 0;
+    }
+  }
+}

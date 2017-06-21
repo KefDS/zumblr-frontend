@@ -9,8 +9,8 @@ const MainContent = (props) => (
   <div className='main'>
     <div className='container-fluid'>
       <div className='row'>
-        <section className='col-md-offset-1 col-md-7 col-sm-12'><Feed /></section>
-        <aside className='col-md-4 hidden-sm-down'><SideBar /></aside>
+        <section className='col-md-offset-1 col-md-7'><Feed /></section>
+        <aside className='col-md-offset-1 col-md-3 visible-md-block visible-lg-block'><SideBar /></aside>
       </div>
     </div>
   </div>

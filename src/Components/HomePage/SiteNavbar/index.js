@@ -12,7 +12,7 @@ const SiteNavbar = () => (
       <div className='container-fluid'>
 
         <div className='navbar-header'>
-          <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>
+          <button type='button' className='navbar__button navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>
             <span className='sr-only'>Toggle navigation</span>
             <span className='icon-bar' />
             <span className='icon-bar' />
@@ -49,12 +49,12 @@ const RightNavbarItems = (props) => (
         <NavbarIcon route='#' img={navbarIcon.path} alt={navbarIcon.alt} />
       </li>)
     )}
-    <li><Link to='#'><img className='navbar__make-post' src='/assets/img/navbar/post.svg' /></Link></li>
+    <li><Link to='#'><img className='navbar__make-post' src='/assets/img/navbar/post.svg' alt='Make Post' /></Link></li>
   </ul>
 )
 
 const NavbarIcon = ({ route, img, alt }) => (
-  <Link to={route}><img className='navbar__icon' src={img} /></Link>
+  <Link to={route}><img className='navbar__icon' src={img} alt={alt} /></Link>
 )
 
 export default SiteNavbar

@@ -4,11 +4,16 @@
     margin: 0 auto;
   }
 
+  &__button {
+    margin-top: 1rem;
+  }
+
   $search-box-bg: #2d3a4e;
 
   $search-box-text-color: #c4c4c4;
 
   &__search-box {
+    border: 0;
     padding-left: 0;
     margin: 1.25rem 0 0 3.625rem;
   }
@@ -25,7 +30,7 @@
   }
 
   &__search-input {
-    // Note: If a set the width of the design, breaks the sm and xs view
+    // Note: If I set the width of the design, breaks the sm and xs view
     padding-left: 2.938rem;
     background-color: $search-box-bg;
     border: transparent;
@@ -35,7 +40,7 @@
     &:active,
     &:active:focus,
     &.active:focus {
-      background-color: white;
+      background-color: #fff;
       outline: none;
       box-shadow: none;
     }
@@ -70,5 +75,17 @@
     padding: 0.5rem;
     height: 2.1875rem;
     width: 2.1875rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar__right-icons {
+    li {
+      display: inline-block;
+    }
+  }
+
+  .navbar__search-input {
+    width: 100%;
   }
 }

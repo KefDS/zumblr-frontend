@@ -5,7 +5,7 @@ $colHighlight: #fff;
 $dropDown: false;
 
 .navbar-default {
-  height: 4.375rem;
+  min-height: 4.375rem;
   background: #000;
   background-color: $bgDefault;
   border-color: $bgHighlight;

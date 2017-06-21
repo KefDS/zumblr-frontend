@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
@@ -12,7 +12,8 @@ class AuthChecker extends Component {
 
   render () {
     const { isLoggedIn, children } = this.props
-    return isLoggedIn ? { children } : null
+    console.log(isLoggedIn)
+    return isLoggedIn ? (<div>{children}</div>) : null
   }
 }
 

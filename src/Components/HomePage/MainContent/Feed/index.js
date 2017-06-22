@@ -6,7 +6,7 @@ import PostsContainer from './PostsContainer'
 import './feed.css'
 
 const Feed = (props) => (
-  <main className='main-content fixed-width'>
+  <main className='fixed-width'>
     <NewPost />
     <PostsContainer />
   </main>

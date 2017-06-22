@@ -12,7 +12,6 @@ class AuthChecker extends Component {
 
   render () {
     const { isLoggedIn, children } = this.props
-    console.log(isLoggedIn)
     return isLoggedIn ? (<div>{children}</div>) : null
   }
 }

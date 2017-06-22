@@ -19,7 +19,7 @@ class PostsContainer extends Component {
       <div>
         {userPosts.map(post => (
           <Post
-            author={user.name}
+            author={user.username}
             hashtags={post.hashtags}
           >
             {post.text

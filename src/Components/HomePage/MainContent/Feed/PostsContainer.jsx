@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { API_URL } from '../../../../constants'
+
 import * as postCreators from '../../../../redux/actions/postCreators'
 
 import Post from './Post'
@@ -22,7 +24,7 @@ class PostsContainer extends Component {
           >
             {post.text
               ? <PostText text={post.text} />
-              : <img src={`http://localhost:1337/multimedia/${post.multimedia}`} alt='blog' />
+              : <img src={`${API_URL}/multimedia/${post.multimedia}`} alt='blog' />
             }
           </Post>
         ))}

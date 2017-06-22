@@ -46,6 +46,7 @@ class ModalContainer extends Component {
     }).then(data => {
       this.setState({ title: '', content: '', hashtags: '' })
       addNewPost(data)
+      this.closeModal()
     })
   }
 

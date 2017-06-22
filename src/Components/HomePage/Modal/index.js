@@ -49,7 +49,8 @@ class ModalContainer extends Component {
 
 const TextForm = (props) => (
   <section className='text-form'>
-    <h2>Text Form Someday</h2>
+    <input className='text-form__title' placeholder='Title' type='text' />
+    <input className='text-form__content' type='text' />
   </section>
 )
 

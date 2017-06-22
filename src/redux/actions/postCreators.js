@@ -11,3 +11,8 @@ export function getUserPosts (userID) {
       .catch(err => console.error(err))
   }
 }
+
+export const addNewPost = (post) => {
+  console.dir(post)
+  return { type: 'ADD_NEW_POST', payload: post }
+}

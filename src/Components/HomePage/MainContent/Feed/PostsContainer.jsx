@@ -24,7 +24,9 @@ class PostsContainer extends Component {
           >
             {post.text
               ? <PostText text={post.text} />
-              : <img src={`${API_URL}/multimedia/${post.multimedia}`} alt='blog' />
+              : <img src={`${API_URL}/multimedia/${post.multimedia}`}
+                alt='Heroku delete all the images 30 min after the last connection :-/'
+              />
             }
           </Post>
         ))}

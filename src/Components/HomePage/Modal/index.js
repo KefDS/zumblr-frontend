@@ -17,8 +17,6 @@ class ModalContainer extends Component {
       hashtags: ''
     }
 
-    this.closeModal = this.closeModal.bind(this)
-    this.openModal = this.openModal.bind(this)
     this.handleOnTitleChange = this.handleOnTitleChange.bind(this)
     this.handleOnContentChange = this.handleOnContentChange.bind(this)
     this.handleOnHashtagChange = this.handleOnHashtagChange.bind(this)
@@ -26,18 +24,9 @@ class ModalContainer extends Component {
     this.handlePost = this.handlePost.bind(this)
   }
 
-  closeModal () {
-    this.props.closeModal()
-  }
-
-  openModal () {
-    this.props.openModal()
-  }
-
   handlePost () {
     const { title, content, hashtags } = this.state
     const { user, addNewPost } = this.props
-    // console.log(`Data: title ${title}, content ${content}, hastag ${hashtags}`)
     API.saveTextPost({
       postType: 'text',
       author: user.id,
@@ -82,7 +71,7 @@ class ModalContainer extends Component {
   }
 
   render () {
-    const { isModalVisible, modalType, user } = this.props
+    const { isModalVisible, modalType, user, closeModal } = this.props
 
     const ModalHeader = (
       <section className='post-modal__header'>
@@ -105,7 +94,7 @@ class ModalContainer extends Component {
     const ModalFooter = (
       <section className='post-modal__footer'>
         <button className='post-modal__close'
-          onClick={this.closeModal}
+          onClick={closeModal}
         >
           CLOSE
         </button>
@@ -135,9 +124,10 @@ class ModalContainer extends Component {
   }
 }
 
-const TextForm = ({ title, content, hashtags,
-  changeTitle, changeContent, changeHashtag
-}) => (
+const TextForm = (
+  { title, content, hashtags,
+    changeTitle, changeContent, changeHashtag
+  }) => (
   <section className='text-form'>
     <input className='text-form__title'
       value={title}

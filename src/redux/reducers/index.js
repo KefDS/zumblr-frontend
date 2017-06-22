@@ -17,7 +17,8 @@ function rootReducer (state = [], action) {
       newState = { ...state, isModalVisible: true }
       break
     case 'SET_MODAL_TYPE':
-      newState = { ...state, modalType: action.payload }
+      console.dir(action)
+      newState = { ...state, modalType: action.payload, isModalVisible: true }
       break
     case 'ADD_NEW_POST':
       newState = { ...state, userPosts: [action.payload, ...state.userPosts] }

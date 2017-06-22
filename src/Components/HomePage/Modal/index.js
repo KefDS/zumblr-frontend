@@ -42,7 +42,7 @@ class ModalContainer extends Component {
       postType: 'text',
       author: user.id,
       text: content,
-      hashtags: hashtags.split('\n')
+      hashtags: hashtags.split(' ')
     }).then(data => {
       this.setState({ title: '', content: '', hashtags: '' })
       addNewPost(data)

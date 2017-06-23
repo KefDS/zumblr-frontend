@@ -17,7 +17,7 @@ const Feed = (props) => (
 const NewPost = ({ setModalType }) => (
   <section className='new-post'>
     {/* TODO: Fetch image from user */}
-    <img className='feed__user-photo' src='/assets/img/dummy/me.png' alt='me' />
+    <img className='feed__user-photo' src='/assets/img/dummy/me2.png' alt='me' />
     <section className='new-post__menu'>
       {postImagesProperties.map((imgInfo, index) => (
         <NewPostIcon

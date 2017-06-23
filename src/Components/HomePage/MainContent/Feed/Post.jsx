@@ -4,7 +4,7 @@ import './post.css'
 
 const Post = ({ author, hashtags, children }) => (
   <section className='post'>
-    <img className='feed__user-photo' src='/assets/img/dummy/me.png' alt='me' />
+    <img className='feed__user-photo' src='/assets/img/dummy/me2.png' alt='me' />
     <div className='post__content'>
       <section className='post__header'>
         <div className='post__info'>

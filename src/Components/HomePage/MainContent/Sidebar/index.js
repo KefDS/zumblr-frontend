@@ -54,19 +54,19 @@ const RadarSidebar = ({ user, children }) => (
 const RecommendedBlogUsers = ({ children }) => (
   <div>
     <RecommendedBlog
-      img='/assets/img/dummy/me.png'
-      username='John Doe'
-      blogName='No pos que mal'
+      img='/assets/img/dummy/avatar-1.png'
+      username='Dylan Quesada'
+      blogName='Vue > React'
     />
     <RecommendedBlog
-      img='/assets/img/dummy/me.png'
-      username='Jhon Cena'
-      blogName='My time is now'
+      img='/assets/img/dummy/avatar-2.png'
+      username='Issac Corrales'
+      blogName='Alajuela es lo mejor!'
     />
     <RecommendedBlog
-      img='/assets/img/dummy/me.png'
-      username='Jhon Smith'
-      blogName='Another blog'
+      img='/assets/img/dummy/avatar-3.png'
+      username='Joel Myrrie'
+      blogName='Chau >:-('
     />
     {children}
     <p className='recommended-blogs'><a>EXPLORE TUMBLR</a></p>
@@ -78,7 +78,7 @@ const MockUsersSidebar = (props) => (
     <SidebarContainer title='RECOMMENDED BLOGS'>
       <RecommendedBlogUsers />
     </SidebarContainer>
-    <RadarSidebar user={{ img: '/assets/img/dummy/me.png', username: 'NG', blogName: 'Landscaping' }}>
+    <RadarSidebar user={{ img: '/assets/img/dummy/avatar-1.png', username: 'NG', blogName: 'Landscaping' }}>
       <img src='/assets/img/dummy/post-img.png' alt='radar' />
     </RadarSidebar>
   </div>

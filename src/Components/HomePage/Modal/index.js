@@ -7,6 +7,8 @@ import API from '../../../services/api'
 
 import './modals.css'
 
+import Axios from 'axios'
+
 class ModalContainer extends Component {
   constructor (props) {
     super(props)
@@ -14,7 +16,9 @@ class ModalContainer extends Component {
     this.state = {
       title: '',
       content: '',
-      hashtags: ''
+      hashtags: '',
+      isImageUploaded: false,
+      assetId: ''
     }
 
     this.handleOnTitleChange = this.handleOnTitleChange.bind(this)
@@ -22,9 +26,25 @@ class ModalContainer extends Component {
     this.handleOnHashtagChange = this.handleOnHashtagChange.bind(this)
     this.selectForm = this.selectForm.bind(this)
     this.handlePost = this.handlePost.bind(this)
+    this.handleImagePost = this.handleImagePost.bind(this)
+    this.handleImageSelected = this.handleImageSelected.bind(this)
   }
 
   handlePost () {
+    const { modalType } = this.props
+    switch (modalType) {
+      case 'text':
+        this.handleTextPost()
+        break
+      case 'photo':
+        this.handleImagePost()
+        break
+      default:
+        return null
+    }
+  }
+
+  handleTextPost () {
     const { title, content, hashtags } = this.state
     const { user, addNewPost } = this.props
     API.saveTextPost({
@@ -37,6 +57,40 @@ class ModalContainer extends Component {
       addNewPost(data)
       this.closeModal()
     })
+  }
+
+  handleImagePost () {
+    const { assetId } = this.state
+    const { user } = this.props
+    console.log(assetId)
+    API.saveTextPost({
+      author: user.id,
+      postType: 'photo',
+      multimedia: assetId
+    })
+  }
+
+  handleImageSelected (evt) {
+    const formData = new FormData()
+    formData.append('asset', evt.target.files[0])
+    formData.append('multiType', 'photo')
+    API.saveMultimediaFile(formData)
+      .then(data => {
+        this.setState({
+          assetId: data,
+          isImageUploaded: true
+        })
+      })
+      .catch(error => console.error(error))
+
+    // Show image
+    // Sorry for use this :-(
+    const reader = new FileReader()
+
+    reader.onload = (e) =>
+      document.getElementById('photo-preview').setAttribute('src', e.target.result)
+
+    reader.readAsDataURL(evt.target.files[0])
   }
 
   handleOnTitleChange (evt) {
@@ -68,7 +122,7 @@ class ModalContainer extends Component {
           />
         )
       case 'photo':
-        return (<ImageForm />)
+        return (<ImageForm handleImage={this.handleImageSelected} />)
       default:
         return null
     }
@@ -153,16 +207,17 @@ const TextForm = (
   </section>
 )
 
-const ImageForm = (props) => (
+const ImageForm = ({ handleImage }) => (
   <section className='image-form'>
     <section className='image-form__upload'>
       <div className='image-form__upload-frontend'>
         <img src='/assets/img/modal/upload-photo.svg' alt='upload-photo' />
         <p>Upload Photo</p>
       </div>
-      <input className='image-form__input' type='file' />
+      <input onChange={handleImage} className='image-form__input' type='file' />
     </section>
     <section className='image-form__web'>
+      <img id='photo-preview' className='image-form__preview' />
       <img src='/assets/img/modal/upload-photos-for-web.svg' alt='web' />
       <p>Upload Photo</p>
     </section>

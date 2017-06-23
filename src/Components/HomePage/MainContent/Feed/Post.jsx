@@ -21,7 +21,7 @@ const Post = ({ author, hashtags, children }) => (
       </section>
       <section className='post__footer'>
         <div className='post__hastag'>
-          <p>{hashtags.map((hashtag, index) => <span key={index}>{hashtag} </span>)}</p>
+          <p>{hashtags && hashtags.map((hashtag, index) => <span key={index}>{hashtag} </span>)}</p>
         </div>
         <div className='post__bottom-info'>
           <div className='post__notes'>

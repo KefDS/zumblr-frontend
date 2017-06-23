@@ -30,6 +30,15 @@ const API = {
     const url = `${data.apiURL}/post`
     return Axios.post(url, newPost, this.getAuthHeader())
       .then(response => response.data)
+  },
+
+  saveMultimediaFile (fileData) {
+    const customHeader = this.getAuthHeader()
+    customHeader.headers['Content-Type'] = 'multipart/form-data'
+
+    const url = `${data.apiURL}/multimedia`
+    return Axios.post(url, fileData, customHeader)
+      .then(response => response.data)
   }
 }
 

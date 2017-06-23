@@ -54,9 +54,9 @@ class ModalContainer extends Component {
   selectForm () {
     const { title, content, hashtags } = this.state
     const { modalType } = this.props
+    console.log(modalType)
     switch (modalType) {
       case 'text':
-      default:
         return (
           <TextForm
             title={title}
@@ -67,8 +67,10 @@ class ModalContainer extends Component {
             changeHashtag={this.handleOnHashtagChange}
           />
         )
-      case 'image':
+      case 'photo':
         return (<ImageForm />)
+      default:
+        return null
     }
   }
 
@@ -151,9 +153,18 @@ const TextForm = (
   </section>
 )
 
-const ImageForm = (props) => {
-  <h2>Comming soon</h2>
-}
+const ImageForm = (props) => (
+  <section className='image-form'>
+    <section className='image-form__upload'>
+      <div className='image-form__upload-frontend'>
+        <img src='/assets/img/modal/upload-photo.svg' alt='upload-photo' />
+        <p>Upload Photo</p>
+      </div>
+      <input className='image-form__input' type='file' />
+    </section>
+    <section className='image-form__web'>Web</section>
+  </section>
+)
 
 const mapStateToProps = state => ({
   isModalVisible: state.isModalVisible,

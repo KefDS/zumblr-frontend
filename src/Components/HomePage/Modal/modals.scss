@@ -118,3 +118,30 @@
     font-size: 14px;
   }
 }
+
+.image-form {
+  height: 12.5rem;
+  display: flex;
+
+  &__upload {
+    position: relative;
+    flex-basis: 50%;
+    height: 100%;
+    width: 50%;
+  }
+
+  &__upload-frontend {
+    img {
+      width: 48px;
+      height: 33px;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    bottom: 55px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+}

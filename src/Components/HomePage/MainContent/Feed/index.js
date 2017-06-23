@@ -1,18 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import postImagesProperties from './postImagesProperties'
 
 import PostsContainer from './PostsContainer'
+import * as modalCreators from '../../../../redux/actions/modalCreators'
 
 import './feed.css'
 
 const Feed = (props) => (
-  <main className='main-content fixed-width'>
-    <NewPost />
+  <main className='fixed-width'>
+    <NewPost {...props} />
     <PostsContainer />
   </main>
 )
 
-const NewPost = (props) => (
+const NewPost = ({ setModalType }) => (
   <section className='new-post'>
     {/* TODO: Fetch image from user */}
     <img className='feed__user-photo' src='/assets/img/dummy/me.png' alt='me' />
@@ -23,7 +25,7 @@ const NewPost = (props) => (
           path={imgInfo.path}
           alt={imgInfo.alt}
           cssClassName={imgInfo.cssClass}
-          handleOnClick={() => console.log(imgInfo.alt)}
+          handleOnClick={setModalType.bind(null, imgInfo.alt)}
         />
       ))}
     </section>
@@ -40,4 +42,4 @@ const NewPostIcon = ({ path, alt, cssClassName, handleOnClick }) => (
   </div>
 )
 
-export default Feed
+export default connect(null, modalCreators)(Feed)

@@ -1,7 +1,6 @@
-export function setUser (user) {
-  return { type: 'SET_USER', payload: user }
-}
+export const setUser = (user) => ({
+  type: 'SET_USER',
+  payload: user
+})
 
-export function loggedIn () {
-  return { type: 'LOGGED_IN', payload: true }
-}
+export const loggedIn = () => ({ type: 'LOGGED_IN' })

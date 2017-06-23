@@ -1,7 +1,9 @@
 const initialState = {
   user: {},
   isLoggedIn: false,
-  userPosts: []
+  userPosts: [],
+  isModalVisible: false,
+  modalType: 'text'
 }
 
 export default initialState

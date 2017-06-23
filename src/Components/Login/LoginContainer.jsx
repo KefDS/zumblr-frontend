@@ -6,11 +6,12 @@ import * as loginCreators from '../../redux/actions/loginCreators'
 import API from '../../services/api'
 
 class LoginContainer extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      isCredentialsIncorrect: false
     }
 
     // Bindings
@@ -19,19 +20,19 @@ class LoginContainer extends Component {
     this.handleOnClick = this.handleOnClick.bind(this)
   }
 
-  handleOnChangeEmail (evt) {
+  handleOnChangeEmail(evt) {
     this.setState({
       email: evt.target.value
     })
   }
 
-  handleOnChangePassword (evt) {
+  handleOnChangePassword(evt) {
     this.setState({
       password: evt.target.value
     })
   }
 
-  handleOnClick () {
+  handleOnClick() {
     const { email, password } = this.state
     const { setUser, loggedIn } = this.props
     API.authUser(email, password)
@@ -40,16 +41,24 @@ class LoginContainer extends Component {
         setUser(data.user)
         loggedIn()
       })
-      .catch(error => console.dir(error))
+      .catch(error => {
+        console.error(error)
+        this.setState({
+          isCredentialsIncorrect: true
+        })
+      })
   }
 
-  render () {
+  render() {
     const { isLoggedIn } = this.props
+    console.log(this.state.isCredentialsIncorrect)
 
     const LoginPanel = (
       <section className='login__form'>
-        <EmailInput handleOnChange={this.handleOnChangeEmail} />
-        <PasswordInput handleOnChange={this.handleOnChangePassword} />
+        <EmailInput handleOnChange={this.handleOnChangeEmail}
+          incorrect={this.state.isCredentialsIncorrect} />
+        <PasswordInput handleOnChange={this.handleOnChangePassword}
+          incorrect={this.state.isCredentialsIncorrect} />
         <button onClick={this.handleOnClick}>Login</button>
       </section>
     )
@@ -58,18 +67,18 @@ class LoginContainer extends Component {
   }
 }
 
-const EmailInput = ({ handleOnChange }) => (
+const EmailInput = ({ handleOnChange, incorrect }) => (
   <input
-    className='login-form__email'
+    className={'login-form__email' + (incorrect ? ' login-form__email--incorrect' : '')}
     type='email'
     placeholder='Email'
     onChange={handleOnChange}
   />
 )
 
-const PasswordInput = ({ handleOnChange }) => (
+const PasswordInput = ({ handleOnChange, incorrect }) => (
   <input
-    className='login-form__password'
+    className={'login-form__password' + (incorrect ? ' login-form__password--incorrect' : '')}
     type='password'
     placeholder='Password'
     onChange={handleOnChange}

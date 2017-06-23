@@ -42,4 +42,4 @@ const NewPostIcon = ({ path, alt, cssClassName, handleOnClick }) => (
   </div>
 )
 
-export default connect(() => { }, modalCreators)(Feed)
+export default connect(null, modalCreators)(Feed)

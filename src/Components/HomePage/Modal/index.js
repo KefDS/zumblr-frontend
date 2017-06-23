@@ -67,6 +67,8 @@ class ModalContainer extends Component {
             changeHashtag={this.handleOnHashtagChange}
           />
         )
+      case 'image':
+        return (<ImageForm />)
     }
   }
 
@@ -148,6 +150,10 @@ const TextForm = (
     />
   </section>
 )
+
+const ImageForm = (props) => {
+  <h2>Comming soon</h2>
+}
 
 const mapStateToProps = state => ({
   isModalVisible: state.isModalVisible,

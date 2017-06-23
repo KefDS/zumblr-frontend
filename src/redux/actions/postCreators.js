@@ -13,6 +13,5 @@ export function getUserPosts (userID) {
 }
 
 export const addNewPost = (post) => {
-  console.dir(post)
   return { type: 'ADD_NEW_POST', payload: post }
 }

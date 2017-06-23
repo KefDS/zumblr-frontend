@@ -17,8 +17,9 @@ class PostsContainer extends Component {
     const { userPosts, user } = this.props
     return (
       <div>
-        {userPosts.map(post => (
+        {userPosts.map((post, index) => (
           <Post
+            key={index}
             author={user.username}
             hashtags={post.hashtags}
           >

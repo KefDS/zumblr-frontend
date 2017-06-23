@@ -162,7 +162,10 @@ const ImageForm = (props) => (
       </div>
       <input className='image-form__input' type='file' />
     </section>
-    <section className='image-form__web'>Web</section>
+    <section className='image-form__web'>
+      <img src='/assets/img/modal/upload-photos-for-web.svg' alt='web' />
+      <p>Upload Photo</p>
+    </section>
   </section>
 )
 

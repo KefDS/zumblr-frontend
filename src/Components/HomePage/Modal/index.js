@@ -7,8 +7,6 @@ import API from '../../../services/api'
 
 import './modals.css'
 
-import Axios from 'axios'
-
 class ModalContainer extends Component {
   constructor (props) {
     super(props)
@@ -46,34 +44,40 @@ class ModalContainer extends Component {
 
   handleTextPost () {
     const { title, content, hashtags } = this.state
-    const { user, addNewPost } = this.props
+    const { user, addNewPost, closeModal } = this.props
     API.saveTextPost({
       postType: 'text',
       author: user.id,
+      title: title,
       text: content,
       hashtags: hashtags.split(' ')
     }).then(data => {
       this.setState({ title: '', content: '', hashtags: '' })
       addNewPost(data)
-      this.closeModal()
+      closeModal()
     })
   }
 
   handleImagePost () {
     const { assetId } = this.state
-    const { user } = this.props
+    const { user, addNewPost, closeModal } = this.props
     console.log(assetId)
     API.saveTextPost({
       author: user.id,
       postType: 'photo',
       multimedia: assetId
+    }).then(data => {
+      addNewPost(data)
+      closeModal()
     })
   }
 
   handleImageSelected (evt) {
+    const { user } = this.props
     const formData = new FormData()
     formData.append('asset', evt.target.files[0])
     formData.append('multiType', 'photo')
+    formData.append('author', user.id)
     API.saveMultimediaFile(formData)
       .then(data => {
         this.setState({
@@ -82,15 +86,6 @@ class ModalContainer extends Component {
         })
       })
       .catch(error => console.error(error))
-
-    // Show image
-    // Sorry for use this :-(
-    const reader = new FileReader()
-
-    reader.onload = (e) =>
-      document.getElementById('photo-preview').setAttribute('src', e.target.result)
-
-    reader.readAsDataURL(evt.target.files[0])
   }
 
   handleOnTitleChange (evt) {
@@ -108,7 +103,6 @@ class ModalContainer extends Component {
   selectForm () {
     const { title, content, hashtags } = this.state
     const { modalType } = this.props
-    console.log(modalType)
     switch (modalType) {
       case 'text':
         return (
@@ -170,7 +164,7 @@ class ModalContainer extends Component {
         ? (
           <div className='post-modal__container'>
             <div className='row'>
-              <main className='col-md-offset-3 col-md-6 post-modal'>
+              <main className='col-xs-offset-2 col-xs-8 col-md-offset-3 col-md-6 post-modal'>
                 {ModalHeader}
                 {ModalBody}
                 {ModalFooter}
@@ -217,7 +211,6 @@ const ImageForm = ({ handleImage }) => (
       <input onChange={handleImage} className='image-form__input' type='file' />
     </section>
     <section className='image-form__web'>
-      <img id='photo-preview' className='image-form__preview' />
       <img src='/assets/img/modal/upload-photos-for-web.svg' alt='web' />
       <p>Upload Photo</p>
     </section>

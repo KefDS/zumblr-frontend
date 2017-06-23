@@ -13,9 +13,9 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={Login} />
-          {/* <AuthChecker> */}
-          <Route path='/dashboard' component={HomePage} />
-          {/* </AuthChecker> */}
+          <AuthChecker>
+            <Route path='/dashboard' component={HomePage} />
+          </AuthChecker>
           <Route component={NotFound} />
         </Switch>
       </Router>

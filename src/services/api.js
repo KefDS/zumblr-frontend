@@ -34,10 +34,9 @@ const API = {
 
   saveMultimediaFile (fileData) {
     const customHeader = this.getAuthHeader()
-    customHeader.headers['Content-Type'] = 'multipart/form-data'
-
+    console.dir(customHeader)
     const url = `${data.apiURL}/multimedia`
-    return Axios.post(url, fileData, customHeader)
+    return Axios.post(url, fileData, this.getAuthHeader())
       .then(response => response.data)
   }
 }
